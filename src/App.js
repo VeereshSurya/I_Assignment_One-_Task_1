@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { FetchUsers } from "./api/index";
+import TableOne from "./Components/TableOne";
+import TableTwo from "./Components/TableTwo";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+    };
+  }
+  componentDidMount = async () => {
+    const FetchedData = await FetchUsers();
+    this.setState({
+      users: FetchedData,
+    });
+  };
+  render() {
+    const { users } = this.state;
+    return (
+      <div>
+        <h1 className="text-center m-3 ">Rai Techintro Private Limited </h1>
+        {/* <TableOne users={users} />  */}
+        <TableTwo users={users} />
+      </div>
+    );
+  }
 }
 
 export default App;
