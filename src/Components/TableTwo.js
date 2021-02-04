@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const TableTwo = ({ users }) => {
   const [userIndex, setUserIndex] = useState(0);
-
+  //  Handling Click events
   const HandleClick = () => {
     userIndex > 8
       ? setUserIndex(0)
@@ -12,6 +12,7 @@ const TableTwo = ({ users }) => {
   return (
     <div>
       {users.length ? (
+        // Table container
         <div className="table-container">
           <button
             type="button"
@@ -20,6 +21,7 @@ const TableTwo = ({ users }) => {
           >
             NEXT
           </button>
+
           <table>
             <thead>
               <tr>

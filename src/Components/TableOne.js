@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
 const TableOne = ({ users }) => {
+  // Hooks to store index values
   const [userIndex, setUserIndex] = useState(2);
 
+  // Button click handling
   const HandleClick = () => {
     setUserIndex(userIndex + 1);
   };
@@ -10,13 +12,14 @@ const TableOne = ({ users }) => {
   return (
     <div>
       {users.length ? (
+        // Table container
         <div className="table-container">
           <button
             type="button"
             class="btn btn-success text-center"
             onClick={HandleClick}
           >
-            Success
+            NEXT
           </button>
           <table>
             <thead>
@@ -48,6 +51,7 @@ const TableOne = ({ users }) => {
           </table>
         </div>
       ) : (
+        // Waits for the data
         <div>
           <h2 className="text-center"> Loading... </h2>
         </div>
