@@ -48,6 +48,7 @@ const TableTwo = ({ users }) => {
           </table>
         </div>
       ) : (
+        // Waits for the data
         <div>
           <h2 className="text-center"> Loading... </h2>
         </div>
